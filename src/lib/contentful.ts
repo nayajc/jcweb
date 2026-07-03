@@ -58,7 +58,7 @@ const FALLBACK_PROJECTS: Project[] = [
     thumbnail: "",
     description: "Vehicle fleet management platform — tracking, maintenance, and dispatch in one dashboard.",
     techTags: ["Next.js", "Supabase"],
-    externalUrl: "https://fleet-manager-pro-delta.vercel.app",
+    externalUrl: "https://www.wefleet.com.au/",
     order: 1,
   },
   {
