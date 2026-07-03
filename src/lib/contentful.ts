@@ -62,7 +62,7 @@ const FALLBACK_PROJECTS: Project[] = [
     order: 1,
   },
   {
-    title: "LawLawLand",
+    title: "Lawyer Website",
     slug: "lawlawland",
     thumbnail: "/projects/lawlawland.jpg",
     description: "AI consultation site for a divorce lawyer — clients chat with an AI trained on the firm's expertise before booking a real consultation.",
