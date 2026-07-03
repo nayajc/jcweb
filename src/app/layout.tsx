@@ -14,10 +14,26 @@ const inter = Inter({
   weight: ["400", "500"],
 });
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://jcweb.vercel.app";
+
+const siteDescription =
+  "JC Song — web apps, dashboards, and side projects, all deployed and clickable.";
+
 export const metadata: Metadata = {
-  title: "JC Song — I make ideas real & live.",
-  description:
-    "JC Song — web apps, dashboards, and side projects, all deployed and clickable.",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "JC Song — I make ideas real & live.",
+    template: "%s — JC Song",
+  },
+  description: siteDescription,
+  openGraph: {
+    title: "JC Song — I make ideas real & live.",
+    description: siteDescription,
+    url: baseUrl,
+    siteName: "JC Song",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

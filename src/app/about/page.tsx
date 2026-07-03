@@ -4,10 +4,17 @@ import Footer from "@/components/Footer";
 import SectionHead from "@/components/SectionHead";
 import AboutContent from "@/components/AboutContent";
 
+const aboutDescription =
+  "JC Song — based in Seoul, working in travel tech, building web apps, dashboards, and side projects.";
+
 export const metadata: Metadata = {
-  title: "About — JC Song",
-  description:
-    "JC Song — based in Seoul, working in travel tech, building web apps, dashboards, and side projects.",
+  title: "About",
+  description: aboutDescription,
+  openGraph: {
+    title: "About — JC Song",
+    description: aboutDescription,
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

@@ -8,8 +8,13 @@ import { getBlogPosts } from "@/lib/contentful";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Blog — JC Song",
+  title: "Blog",
   description: "Notes on building web apps, dashboards, and side projects.",
+  openGraph: {
+    title: "Blog — JC Song",
+    description: "Notes on building web apps, dashboards, and side projects.",
+    type: "website",
+  },
 };
 
 export default async function BlogPage() {

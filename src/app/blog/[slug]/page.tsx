@@ -21,10 +21,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  if (!post) return { title: "Post not found — JC Song" };
+  if (!post) return { title: "Post not found" };
   return {
-    title: `${post.title} — JC Song`,
+    title: post.title,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} — JC Song`,
+      description: post.excerpt,
+      type: "article",
+      ...(post.coverImage ? { images: [post.coverImage] } : {}),
+    },
   };
 }
 
