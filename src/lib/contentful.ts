@@ -65,7 +65,7 @@ const FALLBACK_PROJECTS: Project[] = [
     title: "LawLawLand",
     slug: "lawlawland",
     thumbnail: "",
-    description: "AI legal chatbot for a divorce law firm — plain-language answers on divorce, custody, and alimony.",
+    description: "AI consultation site for a divorce lawyer — clients chat with an AI trained on the firm's expertise before booking a real consultation.",
     techTags: ["Next.js", "AI SDK", "Contentful"],
     externalUrl: "https://lawlawland-delta.vercel.app",
     order: 2,
