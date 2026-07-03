@@ -45,14 +45,96 @@ function assetUrl(asset: unknown): string | undefined {
   return url.startsWith("//") ? `https:${url}` : url;
 }
 
+/**
+ * Static fallback projects, shown until the `project` content type is
+ * created in Contentful (see docs/mockups/DECISION.md / consensus plan
+ * Phase 2, currently deferred). Once real Contentful entries exist,
+ * getProjects() returns those instead and this list is unused.
+ */
+const FALLBACK_PROJECTS: Project[] = [
+  {
+    title: "Fleet Manager Pro",
+    slug: "fleet-manager-pro",
+    thumbnail: "",
+    description: "Vehicle fleet management platform — tracking, maintenance, and dispatch in one dashboard.",
+    techTags: ["Next.js", "Supabase"],
+    externalUrl: "https://fleet-manager-pro-delta.vercel.app",
+    order: 1,
+  },
+  {
+    title: "LawLawLand",
+    slug: "lawlawland",
+    thumbnail: "",
+    description: "AI legal chatbot for a divorce law firm — plain-language answers on divorce, custody, and alimony.",
+    techTags: ["Next.js", "AI SDK", "Contentful"],
+    externalUrl: "https://lawlawland-delta.vercel.app",
+    order: 2,
+  },
+  {
+    title: "JCalendar",
+    slug: "jcalendar",
+    thumbnail: "",
+    description: "Booking SaaS for consultants — clients reserve open slots via an embeddable widget, synced to Google Calendar.",
+    techTags: ["Next.js", "Firebase", "Google Calendar"],
+    externalUrl: "https://jcalendar-pearl.vercel.app",
+    order: 3,
+  },
+  {
+    title: "Northmead Car Sales",
+    slug: "northmead-car-sales",
+    thumbnail: "",
+    description: "Inventory site for a premium Japanese-import car dealership, with vehicle listings and admin tools.",
+    techTags: ["HTML/CSS/JS", "Firebase"],
+    externalUrl: "https://northmead.vercel.app",
+    order: 4,
+  },
+  {
+    title: "Two Fasting",
+    slug: "twofasting",
+    thumbnail: "",
+    description: "Intermittent fasting tracker with a friendly, game-like feel — install as a PWA and log fasts on the go.",
+    techTags: ["Next.js", "PWA", "Firebase"],
+    externalUrl: "https://twofasting.vercel.app",
+    order: 5,
+  },
+  {
+    title: "OCRtalk",
+    slug: "ocrtalk",
+    thumbnail: "",
+    description: "Turns KakaoTalk/text-message screenshots into text — AI extraction, translation, and Word export.",
+    techTags: ["Next.js", "AI SDK", "Supabase"],
+    externalUrl: "https://ocrtalk.vercel.app",
+    order: 6,
+  },
+  {
+    title: "Lawforms (내용증명 AI)",
+    slug: "lawforms",
+    thumbnail: "",
+    description: "Generates formal legal demand letters from a short description or guided questions — no legal knowledge required.",
+    techTags: ["Next.js", "Generative AI", "Firebase"],
+    externalUrl: "https://lawforms.vercel.app",
+    order: 7,
+  },
+  {
+    title: "CloudCloset",
+    slug: "cloudcloset",
+    thumbnail: "",
+    description: "A wardrobe in the cloud — catalog your clothes and plan outfits from anywhere.",
+    techTags: ["Next.js", "Supabase", "PWA"],
+    externalUrl: "https://cloudcloset.vercel.app",
+    order: 8,
+  },
+];
+
 export async function getProjects(): Promise<Project[]> {
   const client = getClient();
-  if (!client) return [];
+  if (!client) return FALLBACK_PROJECTS;
   try {
     const entries = await client.getEntries({
       content_type: "project",
       order: ["fields.order"],
     });
+    if (entries.items.length === 0) return FALLBACK_PROJECTS;
     return entries.items.map((item: Entry) => {
       const f = item.fields as Record<string, unknown>;
       return {
@@ -67,7 +149,7 @@ export async function getProjects(): Promise<Project[]> {
     });
   } catch (error) {
     console.warn("[contentful] getProjects failed:", error);
-    return [];
+    return FALLBACK_PROJECTS;
   }
 }
 
