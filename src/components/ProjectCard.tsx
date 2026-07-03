@@ -1,12 +1,17 @@
 import Image from "next/image";
+import type { ElementType } from "react";
 import type { Project } from "@/lib/contentful";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const hasLink = Boolean(project.externalUrl);
+  const Wrapper = (hasLink ? "a" : "div") as ElementType;
+  const linkProps = hasLink
+    ? { href: project.externalUrl, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
-    <a
-      href={project.externalUrl || "#"}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Wrapper
+      {...linkProps}
       className="group block bg-card border border-edge rounded-2xl overflow-hidden text-inherit no-underline transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-amber"
     >
       <div
@@ -25,9 +30,11 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="object-cover"
           />
         ) : null}
-        <span className="absolute top-[14px] right-4 font-display text-[18px] text-muted group-hover:text-amber">
-          ↗
-        </span>
+        {hasLink && (
+          <span className="absolute top-[14px] right-4 font-display text-[18px] text-muted group-hover:text-amber">
+            ↗
+          </span>
+        )}
       </div>
       <div className="px-[22px] pt-5 pb-6">
         <h3 className="text-xl font-bold">{project.title}</h3>
@@ -45,6 +52,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
       </div>
-    </a>
+    </Wrapper>
   );
 }

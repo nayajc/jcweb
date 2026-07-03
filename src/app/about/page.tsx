@@ -5,7 +5,7 @@ import SectionHead from "@/components/SectionHead";
 import AboutContent from "@/components/AboutContent";
 
 const aboutDescription =
-  "JC Song — based in Seoul, working in travel tech, building web apps, dashboards, and side projects.";
+  "JC Song — based in Sydney, working in travel tech, building web apps, dashboards, and side projects.";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,22 +26,22 @@ export default function AboutPage() {
 
       <div className="flex gap-[22px] mt-10">
         <a
-          href="mailto:jc.song@kkday.com"
+          href="mailto:nayajcsong@gmail.com"
           className="text-text text-sm hover:text-amber transition-colors"
         >
           Email
         </a>
-        {/* TODO: replace "#" with real GitHub profile URL */}
         <a
-          href="#"
+          href="https://github.com/nayajc"
+          target="_blank"
           rel="noopener noreferrer"
           className="text-text text-sm hover:text-amber transition-colors"
         >
           GitHub
         </a>
-        {/* TODO: replace "#" with real LinkedIn profile URL */}
         <a
-          href="#"
+          href="https://www.linkedin.com/in/jaechulsong/"
+          target="_blank"
           rel="noopener noreferrer"
           className="text-text text-sm hover:text-amber transition-colors"
         >

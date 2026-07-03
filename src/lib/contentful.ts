@@ -124,6 +124,15 @@ const FALLBACK_PROJECTS: Project[] = [
     externalUrl: "https://www.cloudcloset.fit",
     order: 8,
   },
+  {
+    title: "Automation Systems",
+    slug: "automation-systems",
+    thumbnail: "/projects/automation.svg",
+    description: "A handful of bots and dashboards running quietly behind the scenes, handling the repetitive stuff so I don't have to.",
+    techTags: ["Bots", "Dashboards"],
+    externalUrl: "",
+    order: 9,
+  },
 ];
 
 export async function getProjects(): Promise<Project[]> {
