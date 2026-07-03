@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant C — Field Notes / Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f5f0;
+    --ink: #23261f;
+    --muted: #77796e;
+    --line: #d9d7cc;
+    --moss: #4a5d3a;      /* deep moss green accent */
+    --moss-soft: #eef0e6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Public Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .serif { font-family: 'Fraunces', serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  header { padding: 22px 0; }
+  nav { display: flex; justify-content: space-between; align-items: baseline; }
+  .logo { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; }
+  nav ul { display: flex; gap: 24px; list-style: none; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav a:hover { color: var(--moss); }
+
+  .hero { padding: 80px 0 64px; border-bottom: 2px solid var(--ink); }
+  .hero .eyebrow { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--moss); font-weight: 600; }
+  .hero h1 {
+    font-family: 'Fraunces', serif; font-weight: 500;
+    font-size: clamp(34px, 5.5vw, 58px); line-height: 1.15; letter-spacing: -0.01em;
+    margin-top: 18px; max-width: 720px;
+  }
+  .hero h1 em { font-style: italic; color: var(--moss); }
+  .hero p { margin-top: 22px; color: var(--muted); max-width: 460px; }
+
+  /* asymmetric editorial layout: sidebar label + content column */
+  section { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 56px 0; border-bottom: 1px solid var(--line); }
+  .side { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-top: 6px; }
+
+  .project { display: grid; grid-template-columns: 1fr 200px; gap: 28px; padding: 26px 0; border-top: 1px solid var(--line);
+    text-decoration: none; color: inherit; align-items: center; }
+  .project:first-of-type { border-top: none; padding-top: 0; }
+  .project h3 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 600; }
+  .project:hover h3 { color: var(--moss); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 5px; }
+  .project p { color: var(--muted); font-size: 15px; margin-top: 6px; max-width: 480px; }
+  .meta { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .meta span { font-size: 12.5px; color: var(--moss); background: var(--moss-soft); padding: 3px 10px; border-radius: 3px; }
+  .visit { font-size: 13px; color: var(--muted); }
+  .thumb { aspect-ratio: 4/3; background: linear-gradient(160deg, #e7e6dd, #d5d6c8); border-radius: 4px; }
+
+  .post { padding: 20px 0; border-top: 1px solid var(--line); text-decoration: none; color: inherit; display: block; }
+  .post:first-of-type { border-top: none; padding-top: 0; }
+  .post h3 { font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500; }
+  .post:hover h3 { color: var(--moss); }
+  .post time { font-size: 13px; color: var(--muted); }
+  .post p { color: var(--muted); font-size: 14.5px; margin-top: 6px; }
+
+  .bio p { max-width: 520px; font-size: 16px; }
+  .skills { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skills span { font-size: 13px; border: 1px solid var(--line); padding: 4px 12px; border-radius: 3px; color: var(--ink); background: #fff; }
+  .contact { margin-top: 26px; display: flex; gap: 20px; }
+  .contact a { color: var(--moss); font-weight: 500; text-decoration: none; font-size: 15px; border-bottom: 1px solid var(--moss); padding-bottom: 1px; }
+
+  footer { padding: 36px 0 56px; display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 16px; }
+    .project { grid-template-columns: 1fr; }
+    .thumb { order: -1; max-width: 320px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <nav>
+      <div class="logo">JC Song</div>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Maker · Seoul, KR</div>
+    <h1>A field guide to things I've <em>actually shipped</em> — apps, dashboards, and experiments.</h1>
+    <p>Each project below is live on the internet. Click through and use the real thing.</p>
+  </div>
+
+  <section id="work">
+    <div class="side">Selected<br>Work</div>
+    <div>
+      <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>CloudCloset</h3>
+          <p>A wardrobe you can open from anywhere — catalog clothes, plan outfits, pack smarter.</p>
+          <div class="meta"><span>Flutter</span><span>Supabase</span></div>
+        </div>
+        <div><div class="thumb"></div><div class="visit" style="margin-top:8px">Visit site ↗</div></div>
+      </a>
+      <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>Blueline Dashboard</h3>
+          <p>Reporting on autopilot — Google Sheets in, clean live dashboards out.</p>
+          <div class="meta"><span>Next.js</span><span>Sheets API</span></div>
+        </div>
+        <div><div class="thumb"></div><div class="visit" style="margin-top:8px">Visit site ↗</div></div>
+      </a>
+      <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+        <div>
+          <h3>KKday Sales Dashboard</h3>
+          <p>Travel product sales, made visible — analytics and charts for daily decisions.</p>
+          <div class="meta"><span>React</span><span>Charts</span></div>
+        </div>
+        <div><div class="thumb"></div><div class="visit" style="margin-top:8px">Visit site ↗</div></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="side">Notes<br>&amp; Writing</div>
+    <div>
+      <a class="post" href="#">
+        <time>June 14, 2026</time>
+        <h3>Shipping a dashboard in a weekend with Next.js and Google Sheets</h3>
+        <p>The fastest path from a messy spreadsheet to a URL your team actually opens.</p>
+      </a>
+      <a class="post" href="#">
+        <time>May 2, 2026</time>
+        <h3>What I learned building my first Flutter app</h3>
+        <p>Notes from taking CloudCloset from idea to app store.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="side">About</div>
+    <div class="bio">
+      <p>I'm JC — I work in travel tech in Seoul and spend evenings turning everyday friction into small, useful software. This site is my field notebook: finished work up top, thinking below.</p>
+      <div class="skills">
+        <span>TypeScript</span><span>Next.js</span><span>React</span><span>Flutter</span>
+        <span>Supabase</span><span>Vercel</span><span>Data Viz</span><span>Google APIs</span>
+      </div>
+      <div class="contact">
+        <a href="mailto:jc.song@example.com">Email</a>
+        <a href="#" rel="noopener noreferrer">GitHub</a>
+        <a href="#" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 JC Song</div>
+    <div>Built with Next.js · Content via Contentful</div>
+  </footer>
+</div>
+</body>
+</html>

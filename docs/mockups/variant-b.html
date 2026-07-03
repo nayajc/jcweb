@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant B — Night Deck / Bold Cards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #10131a;        /* deep blue-black, not pure black */
+    --card: #181c26;
+    --edge: #262b38;
+    --text: #e8eaf0;
+    --muted: #8b90a0;
+    --amber: #ffb454;     /* warm signal */
+    --rose: #ff6b81;      /* second signal */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  h1,h2,h3,.disp { font-family: 'Space Grotesk', sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  header { height: 68px; display: flex; align-items: center; }
+  nav { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+  .logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; }
+  .logo span { color: var(--amber); }
+  nav ul { display: flex; gap: 26px; list-style: none; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  nav a:hover { color: var(--text); }
+
+  .hero { padding: 90px 0 70px; }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 700; line-height: 1.05; letter-spacing: -0.03em;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(92deg, var(--amber), var(--rose));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero p { margin-top: 24px; color: var(--muted); max-width: 520px; font-size: 17px; }
+  .hero .cta { display: inline-block; margin-top: 32px; padding: 12px 24px; border: 1px solid var(--edge);
+    border-radius: 999px; color: var(--text); text-decoration: none; font-size: 14px; }
+  .hero .cta:hover { border-color: var(--amber); color: var(--amber); }
+
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin: 60px 0 26px; }
+  .sec-head h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--edge); }
+
+  /* Big cards — the signature: each project gets a poster */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--card); border: 1px solid var(--edge); border-radius: 16px;
+    overflow: hidden; text-decoration: none; color: inherit; display: block;
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--amber); }
+  .card .shot { aspect-ratio: 16/10; background:
+    radial-gradient(120% 120% at 20% 10%, #2a3145 0%, #171b26 60%); position: relative; }
+  .card .shot::after {
+    content: '↗'; position: absolute; top: 14px; right: 16px; color: var(--muted);
+    font-family: 'Space Grotesk', sans-serif; font-size: 18px;
+  }
+  .card:hover .shot::after { color: var(--amber); }
+  .card .body { padding: 20px 22px 24px; }
+  .card h3 { font-size: 20px; font-weight: 700; }
+  .card p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .tags { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+  .tag { font-size: 11.5px; color: var(--amber); background: rgba(255,180,84,.09);
+    padding: 3px 10px; border-radius: 999px; }
+
+  .posts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .post { background: var(--card); border: 1px solid var(--edge); border-radius: 12px; padding: 22px;
+    text-decoration: none; color: inherit; }
+  .post:hover { border-color: var(--rose); }
+  .post time { font-size: 12px; color: var(--rose); }
+  .post h3 { font-size: 17px; margin-top: 8px; font-weight: 500; line-height: 1.4; }
+
+  .about { display: flex; gap: 48px; align-items: start; margin-top: 8px; flex-wrap: wrap; }
+  .about p { color: var(--muted); max-width: 460px; font-size: 15.5px; flex: 1 1 300px; }
+  .about p b { color: var(--text); font-weight: 500; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 260px; }
+  .skills .tag { color: var(--text); background: var(--card); border: 1px solid var(--edge); font-size: 12.5px; padding: 5px 13px; }
+
+  footer { margin-top: 100px; border-top: 1px solid var(--edge); padding: 36px 0 56px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  footer .links { display: flex; gap: 22px; }
+  footer a { color: var(--text); text-decoration: none; font-size: 14px; }
+  footer a:hover { color: var(--amber); }
+  footer small { color: var(--muted); }
+
+  @media (max-width: 640px) { .hero { padding-top: 56px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <nav>
+      <div class="logo">JC<span>.</span></div>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I make ideas<br><span class="grad">real &amp; live.</span></h1>
+    <p>JC Song — web apps, dashboards, and side projects, all deployed and clickable. Pick a card, see the real thing.</p>
+    <a class="cta" href="#work">Browse the work ↓</a>
+  </section>
+
+  <section id="work">
+    <div class="sec-head"><h2>Work</h2><div class="rule"></div></div>
+    <div class="grid">
+      <a class="card" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="shot"></div>
+        <div class="body">
+          <h3>CloudCloset</h3>
+          <p>Your wardrobe in the cloud — catalog clothes, plan outfits anywhere.</p>
+          <div class="tags"><span class="tag">Flutter</span><span class="tag">Supabase</span></div>
+        </div>
+      </a>
+      <a class="card" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="shot"></div>
+        <div class="body">
+          <h3>Blueline Dashboard</h3>
+          <p>Automated reports straight from Google Sheets to the browser.</p>
+          <div class="tags"><span class="tag">Next.js</span><span class="tag">Sheets API</span></div>
+        </div>
+      </a>
+      <a class="card" href="#" target="_blank" rel="noopener noreferrer">
+        <div class="shot"></div>
+        <div class="body">
+          <h3>KKday Sales Dashboard</h3>
+          <p>Sales analytics for travel products, visualized.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Charts</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="sec-head"><h2>Blog</h2><div class="rule"></div></div>
+    <div class="posts">
+      <a class="post" href="#"><time>Jun 14, 2026</time><h3>Shipping a dashboard in a weekend with Next.js and Google Sheets</h3></a>
+      <a class="post" href="#"><time>May 2, 2026</time><h3>What I learned building my first Flutter app</h3></a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head"><h2>About</h2><div class="rule"></div></div>
+    <div class="about">
+      <p><b>I'm JC, based in Seoul.</b> I work in travel tech and build things on the side — usually the tool I wished existed that morning. This site is the shelf where the finished ones live.</p>
+      <div class="skills">
+        <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span>
+        <span class="tag">Flutter</span><span class="tag">Supabase</span><span class="tag">Vercel</span>
+        <span class="tag">Data Viz</span><span class="tag">Google APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="mailto:jc.song@example.com">Email</a>
+      <a href="#" rel="noopener noreferrer">GitHub</a>
+      <a href="#" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <small>© 2026 JC Song</small>
+  </footer>
+</div>
+</body>
+</html>

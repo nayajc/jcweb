@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant A — Index Card / Swiss Minimal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16181d;
+    --paper: #fcfcfa;
+    --line: #e4e4de;
+    --muted: #82857f;
+    --accent: #1d4ed8; /* cobalt */
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; background: rgba(252,252,250,.92); backdrop-filter: blur(8px);
+  }
+  nav { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  .logo { font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 14px; letter-spacing: .04em; }
+  .logo em { color: var(--accent); font-style: normal; }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a { text-decoration: none; color: var(--muted); font-size: 13px; }
+  nav a:hover, nav a:focus { color: var(--ink); }
+
+  .hero { padding: 96px 0 72px; }
+  .hero .kicker { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; max-width: 640px; }
+  .hero h1 .dim { color: var(--muted); }
+  .hero p { margin-top: 20px; color: var(--muted); max-width: 480px; font-size: 15px; }
+
+  .section-label {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--ink); padding-bottom: 10px; margin-bottom: 0;
+  }
+  .section-label h2 { font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+  .section-label span { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); }
+
+  /* index-row projects: the signature — a ledger, not cards */
+  .project { display: grid; grid-template-columns: 96px 1fr auto; gap: 20px; align-items: center;
+    padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+  .project:hover .p-name, .project:focus .p-name { color: var(--accent); }
+  .thumb { width: 96px; height: 64px; background: linear-gradient(135deg, #eceff3, #dde3ec); border: 1px solid var(--line); border-radius: 3px; }
+  .p-name { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; transition: color .15s; }
+  .p-desc { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .tag { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); border: 1px solid var(--line); padding: 2px 8px; border-radius: 999px; }
+  .arrow { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 14px; }
+  .project:hover .arrow { color: var(--accent); }
+
+  .spacer { height: 88px; }
+
+  .post { display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+  .post h3 { font-size: 15px; font-weight: 500; }
+  .post:hover h3 { color: var(--accent); }
+  .post time { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 28px; }
+  .about p { font-size: 15px; color: #3d4047; }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; align-content: start; }
+  .skills .tag { font-size: 12px; padding: 4px 12px; }
+
+  footer { border-top: 1px solid var(--ink); margin-top: 96px; padding: 32px 0 48px; display: flex; justify-content: space-between; align-items: center; }
+  footer .links { display: flex; gap: 20px; }
+  footer a { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--ink); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+  footer small { color: var(--muted); font-size: 12px; }
+
+  @media (max-width: 640px) {
+    .project { grid-template-columns: 1fr auto; }
+    .thumb { display: none; }
+    .about { grid-template-columns: 1fr; }
+    nav ul { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="logo">jc.song<em>()</em></div>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="kicker">Portfolio · Seoul</div>
+    <h1>JC Song builds web apps and dashboards <span class="dim">— shipped, live, and in use.</span></h1>
+    <p>A working index of things I've made. Every entry links to the real deployed thing, not a screenshot gallery.</p>
+  </section>
+
+  <section id="work">
+    <div class="section-label"><h2>Selected Work</h2><span>03 entries</span></div>
+    <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="thumb"></div>
+      <div>
+        <div class="p-name">CloudCloset</div>
+        <div class="p-desc">A personal wardrobe app — catalog your clothes, plan outfits from anywhere.</div>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Supabase</span></div>
+      </div>
+      <span class="arrow">↗ visit</span>
+    </a>
+    <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="thumb"></div>
+      <div>
+        <div class="p-name">Blueline Dashboard</div>
+        <div class="p-desc">Automated reporting dashboard pulling live data from Google Sheets.</div>
+        <div class="tags"><span class="tag">Next.js</span><span class="tag">Sheets API</span></div>
+      </div>
+      <span class="arrow">↗ visit</span>
+    </a>
+    <a class="project" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="thumb"></div>
+      <div>
+        <div class="p-name">KKday Sales Dashboard</div>
+        <div class="p-desc">Sales analytics and visualization for travel product performance.</div>
+        <div class="tags"><span class="tag">React</span><span class="tag">Charts</span></div>
+      </div>
+      <span class="arrow">↗ visit</span>
+    </a>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section id="blog">
+    <div class="section-label"><h2>Writing</h2><span>via Contentful</span></div>
+    <a class="post" href="#"><h3>Shipping a dashboard in a weekend with Next.js and Google Sheets</h3><time>2026-06-14</time></a>
+    <a class="post" href="#"><h3>What I learned building my first Flutter app</h3><time>2026-05-02</time></a>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section id="about">
+    <div class="section-label"><h2>About</h2><span>&nbsp;</span></div>
+    <div class="about">
+      <p>I'm JC, a builder based in Seoul. By day I work in the travel industry; by night I turn spreadsheets, closets, and sales data into web apps people actually use.</p>
+      <div class="skills">
+        <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span>
+        <span class="tag">Flutter</span><span class="tag">Supabase</span><span class="tag">Vercel</span>
+        <span class="tag">Data Viz</span><span class="tag">Google APIs</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="mailto:jc.song@example.com">email</a>
+      <a href="#" rel="noopener noreferrer">github</a>
+      <a href="#" rel="noopener noreferrer">linkedin</a>
+    </div>
+    <small>© 2026 JC Song</small>
+  </footer>
+</main>
+</body>
+</html>
